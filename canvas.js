@@ -29,6 +29,7 @@ function setup(){
 
     orderIndex = 0;
     isOrderDone = true;
+    i = 0;
 }
 
 // Initialising position variables
