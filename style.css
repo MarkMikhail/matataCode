@@ -147,13 +147,13 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    transition: 0.4s;
+    transition: 0.7s;
 }
 
 .storeContainer.move {
     height: 0;
     width: 0;
-    transition: 0.7s;
+    transition: 0.4s;
 }
 
 .storeContainer .store {
@@ -177,11 +177,11 @@ body {
     border-radius: 3.6vmin;
     border: 3vmin solid rgb(220, 210, 150);
     background: beige;
-    transition: 0.4s;
+    transition: 0.7s;
 }
 
 #myCanvas {
     height: 0;
     border: none;
-    transition: 0.7s;
+    transition: 0.4s;
 }
