@@ -96,16 +96,19 @@ body {
     box-shadow: 0 0 15px rgba(0,0,0,0.15);
 }
 
-#play {
-    width: 74%;
+button {
+    width: 49%;
     border: none;
     color: White;
     font-size: 6vmin;
     letter-spacing: .5rem;
     font-family: 'Chewy', cursive;
     height: 12vmin;
-    background: rgb(250, 150, 50);
     border-radius: 3.6vmin;
+}
+
+#play {
+    background: rgb(250, 150, 50);
 }
 
 #play:active {
@@ -113,15 +116,7 @@ body {
 }
 
 #reset {
-    width: 24%;
-    border: none;
-    color: White;
-    font-size: 6vmin;
-    letter-spacing: .5rem;
-    font-family: 'Chewy', cursive;
-    height: 12vmin;
     background: rgb(250, 50, 50);
-    border-radius: 3.6vmin;
 }
 
 #reset:active {
