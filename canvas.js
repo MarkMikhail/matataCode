@@ -5,7 +5,7 @@ const center = [canvas.width/2, canvas.height/2];
 
 var order = "";
 
-var draw; // Interval variable
+// var drawInt; // Interval variable
 var i = 0; // Delay variable
 
 const scale = canvas.width/8 - 10;
@@ -121,7 +121,7 @@ function draw(){
         
 
         if(orderIndex === order.length){
-            clearInterval(draw);
+            clearInterval(drawInt);
             console.log("STOPPED");
         }
 
@@ -136,4 +136,4 @@ function draw(){
     }
 }
 
-// draw = setInterval(draw, 1000/fps);
+// drawInt = setInterval(draw, 1000/fps);
