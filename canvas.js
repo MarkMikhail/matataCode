@@ -102,7 +102,6 @@ function draw(){
 
 //   If order not done add a bit to current positions and directions (depending on current order)
 //   Check if target is met
-//   If met set order to done
     
     errorX = Math.abs(targetX - currX);
     errorY = Math.abs(targetY - currY);
