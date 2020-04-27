@@ -5,7 +5,7 @@ const center = [canvas.width/2, canvas.height/2];
 
 var order = "";
 
-// var drawInt; // Interval variable
+var drawInt; // Interval variable
 var i = 0; // Delay variable
 
 const scale = canvas.width/8 - 10;
