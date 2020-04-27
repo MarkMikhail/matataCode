@@ -120,10 +120,10 @@ function draw(){
         }
         
 
-        if(orderIndex === order.length){
-            clearInterval(drawInt);
-            console.log("STOPPED");
-        }
+        // if(orderIndex === order.length){
+        //     clearInterval(drawInt);
+        //     console.log("STOPPED");
+        // }
 
     } else {
         cn.lineTo(currX, currY);
