@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css?family=Chewy&display=swap');
+
+* {
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container {
+    height: 60vmin;
+    width: 80vmin;
+    border-radius: 3.6vmin;
+    border: 3vmin solid rgb(220, 210, 150);
+    background: beige;
+    margin-bottom: 1vmin;
+    transition: 0.5s;
+}
+
+.container.move {
+    height: 7vmin;
+}
+
+.board {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    /* pointer-events: none; */
+}
+
+.block {
+    width: 16.66666667%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    /* pointer-events: none; */
+    transition: 0.5s;
+}
+
+.block.move {
+    width: 5.55555556%;
+    height: 50%;
+}
+
+.order {
+    /*   background: green; */
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    /* pointer-events: none; */
+    border-radius: 1vmin;
+}
+
+.orderSub {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 1vmin;
+    z-index: 1000;
+}
+
+.number {
+    /*   width: 100%; */
+    /*   background: red; */
+    flex-grow: 1;
+}
+
+.svg {
+    object-fit: cover;
+}
+
+/* .hold {
+
+} */
+
+.invisible {
+    display: none;
+}
+
+.hovered {
+    background: rgba(0,0,0,0.15);
+    box-shadow: 0 0 15px rgba(0,0,0,0.15);
+}
+
+#play {
+    width: 74%;
+    border: none;
+    color: White;
+    font-size: 6vmin;
+    letter-spacing: .5rem;
+    font-family: 'Chewy', cursive;
+    height: 12vmin;
+    background: rgb(250, 150, 50);
+    border-radius: 3.6vmin;
+}
+
+#play:active {
+    background: rgb(250, 120, 50);
+}
+
+#reset {
+    width: 24%;
+    border: none;
+    color: White;
+    font-size: 6vmin;
+    letter-spacing: .5rem;
+    font-family: 'Chewy', cursive;
+    height: 12vmin;
+    background: rgb(250, 50, 50);
+    border-radius: 3.6vmin;
+}
+
+#reset:active {
+    background: rgb(250, 100, 100);
+}
+
+
+.buttons {
+    margin-top: 1vmin;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* height: 10vmin;
+    background: rgb(250, 170, 70);
+    border-radius: 3.6vmin; */
+}
+
+.storeContainer {
+    /* border: 3vmin solid none; */
+    margin-top: 2vmin;
+    width: 100%;
+    /* background: grey; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    transition: 0.4s;
+}
+
+.storeContainer.move {
+    height: 0;
+    width: 0;
+    transition: 0.7s;
+}
+
+.storeContainer .store {
+    height: 100%;
+    width: 16.6666666667%;
+    border-radius: 1vmin;
+    position: relative;
+}
+
+.storedOrder {
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    background: #fafafa;
+    border-radius: 1vmin;
+}
+
+#myCanvas.move {
+    width: 80vmin;
+    height: 60vmin;
+    border-radius: 3.6vmin;
+    border: 3vmin solid rgb(220, 210, 150);
+    background: beige;
+    transition: 0.4s;
+}
+
+#myCanvas {
+    height: 0;
+    border: none;
+    transition: 0.7s;
+}
