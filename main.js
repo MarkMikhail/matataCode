@@ -45,7 +45,8 @@ document.querySelector("#play").addEventListener("click", function(){
         block.classList.add("move");
     }
 
-    setup()
+    stop();
+    setup();
 
     drawInt = setInterval(draw, 1000/fps);
 })

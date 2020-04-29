@@ -119,10 +119,9 @@ function draw(){
         }
         
 
-        // if(orderIndex === order.length){
-        //     clearInterval(drawInt);
-        //     console.log("STOPPED");
-        // }
+        if(orderIndex === order.length){
+            stop();
+        }
 
     } else {
         cn.lineTo(currX, currY);
@@ -133,6 +132,10 @@ function draw(){
         currY += moveY;
         currR += moveR;
     }
+}
+
+function stop(){
+    clearInterval(drawInt);
 }
 
 // drawInt = setInterval(draw, 1000/fps);
