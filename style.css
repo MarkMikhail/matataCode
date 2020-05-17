@@ -42,7 +42,7 @@ body {
 
 .block {
     width: 16.66666667%;
-    height: 30%;
+    height: 33%;
     display: flex;
     flex-direction: column;
     /* pointer-events: none; */
@@ -63,24 +63,21 @@ body {
     border-radius: 1vmin;
 }
 
-.orderSub {
+.orderSub, .numberSub {
     position: absolute;
     top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    border-radius: 1vmin;
     z-index: 1000;
 }
 
-.number {
+.numberSub {
+    top: -1vmin;
+}
+
+.block .number {
     /*   width: 100%; */
     /*   background: red; */
     flex-grow: 1;
-}
-
-.svg {
-    object-fit: cover;
+    position: relative;
 }
 
 .hovered {
@@ -88,7 +85,7 @@ body {
     box-shadow: 0 0 15px rgba(0,0,0,0.15);
 }
 
-button {
+.playButtons button {
     width: 49%;
     border: none;
     color: White;
@@ -97,6 +94,7 @@ button {
     font-family: 'Chewy', cursive;
     height: 12vmin;
     border-radius: 3.6vmin;
+    cursor: pointer;
 }
 
 #play {
@@ -116,7 +114,7 @@ button {
 }
 
 
-.buttons {
+.playButtons {
     margin-top: 1vmin;
     width: 100%;
     display: flex;
@@ -126,33 +124,95 @@ button {
     border-radius: 3.6vmin; */
 }
 
-.storeContainer {
-    /* border: 3vmin solid none; */
+.tabsFull {
+    width: 100%;
+    display: flex;
+    /* align-items: stretch; */
     margin-top: 2vmin;
+    /* height: 100%; */
+    align-content: center;
+    transition: 0.7s;
+    height: 16vmin;
+}
+
+.height {
+    width: 25%;
+}
+
+#tabButtons {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+#tabButtons button {
+    border: none;
+    cursor: pointer;
+    height: 33.3333%;
+    font-family: 'Chewy', cursive;
+    font-size: 3vmin;
+    border-radius: 2vmin 0 0 2vmin;
+}
+
+#tabButtons button.active{
+    color: white;
+}
+
+#tabButtons #arrows.active{
+    background: #88c543;
+}
+
+#tabButtons #numbers.active{
+    background: #0bbee9;
+}
+
+#tabButtons #extra.active{
+    background: #7b25b0;
+}
+
+.storeContainer.active {
     width: 100%;
     /* background: grey; */
     display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
-    transition: 0.7s;
+    background-color: #f5f5f5;
+    border-radius: 0 2vmin 2vmin 0;
+    align-items: center;
 }
 
-.storeContainer.move {
+.storeContainer {
+    display: none;
+}
+
+.tabsFull.move {
     height: 0;
     width: 0;
     transition: 0.4s;
 }
 
+.tabsFull.move .height #tabButtons Button{
+    font-size: 0;
+}
+
 .storeContainer .store {
-    height: 100%;
-    width: 15.5%;
+    width: 20%;
     border-radius: 1vmin;
     position: relative;
 }
 
+.storeContainer .store.arrow {
+    height: 86%;
+}
+
+.storeContainer .store.number {
+    height: 46%;
+}
+
 .storedOrder {
-    width: 100%;
-    padding-top: 100%;
+    /* width: 100%; */
+    /* height: 100%; */
+    /* padding-top: 100%; */
     position: relative;
     background: #fafafa;
     border-radius: 1vmin;
