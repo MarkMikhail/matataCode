@@ -37,6 +37,8 @@ var targetX = currX = center[0];
 var targetY = currY = center[1];
 var targetR = currR = 0;
 
+var multiple;
+
 var orderIndex = 0;
 var isOrderDone = true;
 
@@ -68,6 +70,8 @@ function draw(){
   
 //   If last order is done get new order from order array
     if (isOrderDone) {
+
+        multiple = 1;
         
     //   Set new target
     //   Set order to not done
@@ -77,10 +81,18 @@ function draw(){
         
         switch (currOrder) {
             case "F":
+                if (!isNaN(order[orderIndex+1])){
+                    multiple = parseInt(order[orderIndex+1]);
+                    order = order.replace(order[orderIndex + 1], currOrder.repeat(multiple - 1));
+                }
                 targetX += scale*Math.sin(currR);
                 targetY -= scale*Math.cos(currR);
                 break;
             case "B":
+                if (!isNaN(order[orderIndex+1])){
+                    multiple = parseInt(order[orderIndex+1]);
+                    order = order.replace(order[orderIndex + 1], currOrder.repeat(multiple - 1));
+                }
                 targetX -= scale*Math.sin(currR);
                 targetY += scale*Math.cos(currR);
                 break;
