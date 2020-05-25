@@ -10,13 +10,15 @@ const stores = document.querySelectorAll(".store");
 const upArrow = document.querySelectorAll(".orderSub");
 const numbers = document.querySelectorAll(".numberSub");
 
-const boardContainer = document.querySelector(".container")
-const blocks = document.querySelectorAll(".block")
-const storeAnim = document.querySelector(".tabsFull")
-const canvasAnim = document.querySelector("#myCanvas")
+const boardContainer = document.querySelector(".container");
+const blocks = document.querySelectorAll(".block");
+const storeAnim = document.querySelector(".tabsFull");
+const canvasAnim = document.querySelector("#myCanvas");
 
-const tabButtons = document.querySelectorAll(".tabBut")
-const tabs = document.querySelectorAll(".storeContainer")
+const tabButtons = document.querySelectorAll(".tabBut");
+const tabs = document.querySelectorAll(".storeContainer");
+
+const mainStores = document.getElementById("stores");
 
 let isMouseDown = false;
 let offset = [0, 0];
@@ -61,15 +63,11 @@ document.addEventListener("touchend", dragEnd);
 
 document.querySelector("#play").addEventListener("click", function(){
     orders = "";
-    // for (empty of orderEmpty) {
-    //     if (empty.children.length) {
-    //         orders += empty.children[0].dataset.command;
-    //     }
-    // }
 
     boardContainer.classList.add("move");
     storeAnim.classList.add("move");
     canvasAnim.classList.add("move");
+
     for (block of blocks){
         block.classList.add("move");
 
@@ -80,7 +78,6 @@ document.querySelector("#play").addEventListener("click", function(){
                 orders += block.children[1].children[0].dataset.command;
             }
         }
-
     }
 
     order = orders;
@@ -131,40 +128,49 @@ function dragProcess(ev){
             draggedElement[0].style.right = - parseInt(draggedElement[0].style.left) + 'px';
             draggedElement[0].style.bottom = - parseInt(draggedElement[0].style.top) + 'px';
 
-            for (empty of orderEmpty) {
-                emptyRect = empty.getBoundingClientRect();
-                if(ev.clientX > emptyRect.left & ev.clientX < emptyRect.right & ev.clientY > emptyRect.top & ev.clientY < emptyRect.bottom){
-                    if (empty.children.length === 0){
-                        empty.classList.add("hovered");
-                        targetOver = empty;
+            if (isNaN(draggedElement[0].dataset.command)){
+                for (empty of orderEmpty) {
+                    emptyRect = empty.getBoundingClientRect();
+                    if(ev.clientX > emptyRect.left & ev.clientX < emptyRect.right & ev.clientY > emptyRect.top & ev.clientY < emptyRect.bottom){
+                        if (empty.children.length === 0){
+                            empty.classList.add("hovered");
+                            targetOver = empty;
+                        }
+                    } else {
+                        empty.classList.remove("hovered");
                     }
-                } else {
-                    empty.classList.remove("hovered");
+                }
+            } else {
+                for (empty of numberEmpty) {
+                    emptyRect = empty.getBoundingClientRect();
+                    if(ev.clientX > emptyRect.left & ev.clientX < emptyRect.right & ev.clientY > emptyRect.top & ev.clientY < emptyRect.bottom){
+                        if (empty.children.length === 0){
+                            if (empty.parentElement.children[0].children.length !== 0){
+                                if (empty.parentElement.children[0].children[0].dataset.command === "F" || empty.parentElement.children[0].children[0].dataset.command === "B"){
+                                    empty.classList.add("hovered");
+                                    targetOver = empty;
+                                }
+                            }
+                        }
+                    } else {
+                        empty.classList.remove("hovered");
+                    }
                 }
             }
 
-            for (empty of numberEmpty) {
-                emptyRect = empty.getBoundingClientRect();
-                if(ev.clientX > emptyRect.left & ev.clientX < emptyRect.right & ev.clientY > emptyRect.top & ev.clientY < emptyRect.bottom){
-                    if (empty.children.length === 0){
-                        empty.classList.add("hovered");
-                        targetOver = empty;
-                    }
-                } else {
-                    empty.classList.remove("hovered");
-                }
-            }
 
-            for (store of stores) {
-                storeRect = store.getBoundingClientRect();
-                if(ev.clientX > storeRect.left & ev.clientX < storeRect.right & ev.clientY > storeRect.top & ev.clientY < storeRect.bottom){
+            storeRect = mainStores.getBoundingClientRect();
+            if(ev.clientX > storeRect.left & ev.clientX < storeRect.right & ev.clientY > storeRect.top & ev.clientY < storeRect.bottom){
+                mainStores.classList.add("hovered");
+
+                for (store of stores) {
                     if(store.dataset.store === draggedElement[0].dataset.command){
-                        store.classList.add("hovered");
                         targetOver = store;
                     }
-                } else {
-                    store.classList.remove("hovered");
                 }
+
+            } else {
+                mainStores.classList.remove("hovered");
             }
         }
     }
@@ -172,6 +178,9 @@ function dragProcess(ev){
 
 function dragEnd(ev){
     isMouseDown = false;
+
+    mainStores.classList.remove("hovered");
+
     // console.log("Mouse Up");
     if(draggedElement[0]){
         if(targetOver){

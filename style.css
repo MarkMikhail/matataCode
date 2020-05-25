@@ -9,6 +9,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .main-container {
@@ -135,6 +136,7 @@ body {
     align-content: center;
     transition: 0.7s;
     height: 16vmin;
+    border-radius: 2vmin;
 }
 
 .height {
