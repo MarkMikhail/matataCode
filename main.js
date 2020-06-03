@@ -28,22 +28,22 @@ let orders;
 
 // Tab listeners
 // Uncomment for tab functionality
-// for(button of tabButtons){
-//     button.addEventListener("click", function() {
-//         for(button of tabButtons){
-//             button.classList.remove("active");
-//         }
+for(button of tabButtons){
+    button.addEventListener("click", function() {
+        for(button of tabButtons){
+            button.classList.remove("active");
+        }
 
-//         for(tab of tabs){
-//             tab.classList.remove("active");
-//         }
+        for(tab of tabs){
+            tab.classList.remove("active");
+        }
 
-//         this.classList.add("active");
+        this.classList.add("active");
 
-//         let tabNum = this.dataset.tab;
-//         tabs[tabNum].classList.add("active")
-//     });
-// }
+        let tabNum = this.dataset.tab;
+        tabs[tabNum].classList.add("active")
+    });
+}
 
 // Arrow listeners
 for(arrow of upArrow){
