@@ -80,9 +80,17 @@ function draw(){
         currOrder = order[orderIndex];
         
         switch (currOrder) {
+            case "I":
+                var stopO = order.search("O");
+                if (!isNaN(order[orderIndex+1])){
+                    multiple = parseInt(order[orderIndex + 1]);
+                    order = order.replace(order.slice(orderIndex,stopO+1), order.slice(orderIndex+2,stopO).repeat(multiple))
+                } else {
+                    order = order.replace(order.slice(orderIndex,stopO+1), order.slice(orderIndex+1,stopO).repeat(multiple))
+                }
             case "F":
                 if (!isNaN(order[orderIndex+1])){
-                    multiple = parseInt(order[orderIndex+1]);
+                    multiple = parseInt(order[orderIndex + 1]);
                     order = order.replace(order[orderIndex + 1], currOrder.repeat(multiple - 1));
                 }
                 targetX += scale*Math.sin(currR);
@@ -97,10 +105,22 @@ function draw(){
                 targetY += scale*Math.cos(currR);
                 break;
             case "R":
-                targetR += Math.PI/2;
+                if (!isNaN(order[orderIndex+1])){
+                    angle = parseInt(order.match(/\d+/))*Math.PI/180;
+                    order = order.replace(order.match(/\d+/), '');
+                } else {
+                    angle = Math.PI/2;
+                }
+                targetR += angle;
                 break;
             case "L":
-                targetR -= Math.PI/2;
+                if (!isNaN(order[orderIndex+1])){
+                    angle = parseInt(order.match(/\d+/))*Math.PI/180;
+                    order = order.replace(order.match(/\d+/), '');
+                } else {
+                    angle = Math.PI/2;
+                }
+                targetR -= angle;
         }
         
         moveX = (targetX - currX)/(fps*orderSpeed);
